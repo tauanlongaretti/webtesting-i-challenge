@@ -25,4 +25,10 @@ describe('testing enhancer', () => {
             expect(fail({ name: 'sword', durability: 80, enhancement: 18})).toEqual({ name: 'sword', durability: 70, enhancement: 17 });
         })
     })
+    describe('get()', () => {
+        it('should add the enhancement level of them item inside brackets after a + sign prior to the items name if enhancement level is greater than 0', () => {
+            expect(get({ name: 'sword', durability: 80, enhancement: 0})).toEqual({ name: 'sword', durability: 80, enhancement: 0 });
+            expect(get({ name: 'sword', durability: 80, enhancement: 17})).toEqual({ name: '[+17]sword', durability: 80, enhancement: 17 });
+        })
+    })
 })
